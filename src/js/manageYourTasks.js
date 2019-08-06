@@ -1,36 +1,15 @@
-"use strict";
-
-// service worker registration - remove if you're not going to use it
-
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    navigator.serviceWorker.register("serviceworker.js").then(
-      function(registration) {
-        // Registration was successful
-        console.log(
-          "ServiceWorker registration successful with scope: ",
-          registration.scope
-        );
-      },
-      function(err) {
-        // registration failed :(
-        console.log("ServiceWorker registration failed: ", err);
-      }
-    );
-  });
-}
-
-// place your code below
 const taskList = {
   todosArr: [],
-  displayTasks: function() {
+  displayTasks: function () {
     if (this.todosArr.length === 0) {
+
       alert("Tablica zadań jest pusta");
     } else {
       console.log("Moje toDos:");
 
       for (let i = 0; i < this.todosArr.length; i++) {
         if (this.todosArr[i].completed === true) {
+
           console.log("(+)", this.todosArr[i].taskText);
         } else {
           console.log("( )", this.todosArr[i].taskText);
@@ -40,7 +19,7 @@ const taskList = {
       this.addTaskInToLi();
     }
   },
-  addTask: function(taskText) {
+  addTask: function (taskText) {
     this.todosArr.push({
       taskText: taskText,
       completed: false
@@ -48,8 +27,9 @@ const taskList = {
     this.displayTasks();
   },
 
-  addTaskInToLi: function() {
-    this.todosArr.forEach(todoLi => {
+  addTaskInToLi: function () {
+
+    this.todosArr.forEach((todoLi) => {
       const taskInLi = document.createElement("li");
       taskInLi.textContent = todoLi.taskText;
       if (todoLi.completed === false) {
@@ -64,23 +44,23 @@ const taskList = {
     });
   },
 
-  changeTask: function(position, taskText) {
+  changeTask: function (position, taskText) {
     this.todosArr[position].taskText = taskText;
     this.displayTasks();
   },
 
-  deleteTask: function(position) {
+  deleteTask: function (position) {
     this.todosArr.splice(position, 1);
     this.displayTasks();
   },
 
-  toggleCompleted: function(position) {
+  toggleCompleted: function (position) {
     const toDo = this.todosArr[position];
     toDo.completed = !toDo.completed;
     this.displayTasks();
   },
 
-  toggleAll: function() {
+  toggleAll: function () {
     const totalTasks = this.todosArr.length;
     let completedTasks = 0;
 
@@ -104,6 +84,7 @@ const taskList = {
   }
 };
 const taskContener = document.querySelector(".taskContener");
+
 
 const displayTaskBtn = document.querySelector(".btn__display");
 displayTaskBtn.addEventListener("click", () => {
@@ -134,6 +115,7 @@ addTaskBtn.addEventListener("click", () => {
   taskContener.textContent = "";
 });
 
+
 const changeTaskBtn = document.querySelector(".btn__change");
 changeTaskBtn.addEventListener("click", () => {
   const changePositionInpt = document.querySelector(".inpt__changePosition");
@@ -157,12 +139,15 @@ deleteTaskBtn.addEventListener("click", () => {
 });
 
 const toggleTaskBtn = document.querySelector(".btn__toggle");
-toggleTaskBtn.addEventListener("click", () => {
-  const toggleTaskInpt = document.querySelector(".inpt__togglePosition");
+toggleTaskBtn.addEventListener('click', () => {
+  const toggleTaskInpt = document.querySelector('.inpt__togglePosition');
   if (toggleTaskInpt.value === "") {
     alert("Tablica zadań jest pusta");
   } else {
     taskList.toggleCompleted(toggleTaskInpt.value);
   }
-  toggleTaskInpt.value = "";
+  toggleTaskInpt.value = '';
 });
+
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style/mainMenu.css">
+  <title>toDo.app</title>
+</head>
+
+<body>
+  <h1>Manage Your Tasks!</h1>
+  <button class="btn btn__display">Wyświetl zadania</button>
+  <button class="btn btn__toggleAll">Zaznacz wszystkie</button>
+
+  <button class=" btn btn__add">Dodaj zadanie</button>
+  <input class="inpt inpt__add" type="text" />
+  <br />
+
+  <button class="btn btn__change">Zmień swoje zadanie</button>
+  <input class="inpt inpt__changePosition" type="number" min="0" max="100" placeholder="Numer" />
+  <input class="inpt inpt__changeText" type="text" placeholder="Tekst zadania" />
+
+  <button class="btn btn__delete">Usuń zadanie</button>
+  <input class="inpt inpt__deletePosition" type="number" placeholder="Numer">
+
+  <button class="btn btn__toggle">Odznacz jako wykonane</button>
+  <input class="inpt inpt__togglePosition" type="number" placeholder="Numer">
+
+  <ul class="taskContener"></ul>
+
+  <script src="src/manageYourTasks.js"></script>
+</body>
+
+</html>

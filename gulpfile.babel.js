@@ -31,30 +31,29 @@ gulp.task("html", function() {
 });
 
 gulp.task("pwa", function() {
-  return gulp
-    .src("./src/pwa/**/*")
-    .pipe(gulp.dest("./dist/"));
+  return gulp.src("./src/pwa/**/*").pipe(gulp.dest("./dist/"));
 });
 
 gulp.task("js", function() {
-  return gulp.src('src/js')
-  .pipe(
-    plumber({
-      errorHandler: function(err) {
-        notify.onError({
-          title: `Gulp error in ${err.plugin}`,
-          message: err.toString()
-        })(err);
-      }
-    })
-  )
-  .pipe(webpack(require('./webpack.config.js')))
-  .pipe(gulp.dest('dist/js'));
+  return gulp
+    .src("src/js")
+    .pipe(
+      plumber({
+        errorHandler: function(err) {
+          notify.onError({
+            title: `Gulp error in ${err.plugin}`,
+            message: err.toString()
+          })(err);
+        }
+      })
+    )
+    .pipe(webpack(require("./webpack.config.js")))
+    .pipe(gulp.dest("dist/js"));
 });
 
 gulp.task("sass", () => {
   return gulp
-    .src("./src/scss/main.scss")
+    .src("./src/scss/main.sass")
     .pipe(
       plumber({
         errorHandler: function(err) {
