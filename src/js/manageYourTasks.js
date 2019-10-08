@@ -148,6 +148,3 @@ toggleTaskBtn.addEventListener('click', () => {
   }
   toggleTaskInpt.value = '';
 });
-
-
-
