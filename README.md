@@ -1,9 +1,5 @@
-# wtf-gulp-starter
+#manageYourTime 
 
-`npm install -g gulp-cli`
+![page screenshot](github/demo.png)
 
-`npm install`
-
-`gulp`
-
-To publish your page using github pages use `npm run deploy`
+App will be developed in the future.
